@@ -7,6 +7,7 @@ public class DivideAndConquer {
     static int functionCallCount = 0;
 
     //function to merge sort the given array
+    //we recursively divide the array and then merge
     public static void mergeSort(int arr[], int si, int ei) {
         if (si >= ei) return;
 
@@ -33,6 +34,7 @@ public class DivideAndConquer {
     }
 
     //function to quick sort the given array
+    //a pivot is taken randomly(here last index), the array is divided into left and right
     public static void quickSort(int arr[], int si, int ei) {
 //        System.out.println("FC: " + ++functionCallCount);
         if (si >= ei) return;
@@ -54,6 +56,28 @@ public class DivideAndConquer {
         quickSort(arr, si, i - 1);
         quickSort(arr, i + 1, ei);
 
+    }
+
+    //we are given an sorted and rotated array
+    //we need to find the index of targer
+    public static int search(int arr[], int tar, int si, int ei) {
+        System.out.println(++functionCallCount);
+        if (si > ei) return -1;
+
+        int mid = si + (ei - si) / 2;
+
+        if (arr[mid] == tar) return mid;
+
+        //if on line 1
+        if (arr[si] <= arr[mid]) {
+            if (arr[si] <= tar && tar < arr[mid]) return search(arr, tar, si, mid - 1);
+            else return search(arr, tar, mid + 1, ei);
+        }
+        //if on line 2
+        else {
+            if (arr[mid] < tar && tar <= arr[ei]) return search(arr, tar, mid + 1, ei);
+            else return search(arr, tar, si, mid - 1);
+        }
     }
 
 }
