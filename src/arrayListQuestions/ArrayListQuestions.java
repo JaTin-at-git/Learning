@@ -1,6 +1,7 @@
 package arrayListQuestions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArrayListQuestions {
 
@@ -20,6 +21,22 @@ public class ArrayListQuestions {
         }
 
         return maxWater;
+    }
+
+    //given a string, find all the subsequences and store them in arraylist
+    public static ArrayList<String> getAllSubstrings(String str) {
+        if (str.isEmpty()) return new ArrayList<>(List.of(""));
+
+        ArrayList<String> res = new ArrayList<>();
+        char ch = str.charAt(0);
+        ArrayList<String> preSubStrings = getAllSubstrings(str.substring(1));
+
+        for (String pre : preSubStrings) {
+            res.add("" + pre);
+            res.add(ch + pre);
+        }
+
+        return res;
     }
 
 }
