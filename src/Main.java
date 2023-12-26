@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(ArrayListQuestions.getAllSubstrings("meow"));
+
+        long startTime = System.nanoTime();
+        System.out.println(ArrayListQuestions.clearMaze( 1, 2,10,11));
+        long stopTime = System.nanoTime();
+        System.out.println((stopTime - startTime) / 1e9);
     }
 }
