@@ -99,9 +99,10 @@ public class ArrayListQuestions {
             for (String post : clearMaze(sr, sc - 1, er, ec))
                 res.add("W" + post);
 
-
         //return
         return res;
     }
+
+
 
 }

@@ -8,9 +8,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+        int maze[][] = {{0, 1, 0, 0, 0, 0, 0}, {0, 1, 0, 1, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 0}, {1, 0, 1, 1, 0, 1, 1}, {1, 0, 1, 1, 0, 1, 1}, {1, 0, 0, 0, 0, 0, 0}};
+
         long startTime = System.nanoTime();
-        System.out.println(ArrayListQuestions.clearMaze( 1, 2,10,11));
+        RecursionQuestions.floodFill(maze,0,0,5,1,"");
         long stopTime = System.nanoTime();
+        System.out.println();
         System.out.println((stopTime - startTime) / 1e9);
     }
 }
